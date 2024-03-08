@@ -12,15 +12,27 @@ class Box {
 
 }
 
-$num1 = 4;
-$num2 = $num1;
-$num2 = 7;
-var_dump($num1, $num2);
+class MetalBox extends Box {
+    public $material = 'Metal';
+    public $weight;
 
+    public function volume(){
+        return $this->width * $this->height * $this->length;
+    }
+
+}
+
+trait HasSmell {
+    public $smell;
+    public function sniff(){
+        if($this->smell !=='Bad'){
+            return 'Fine';
+        }
+        return 'Bad';
+    }
+}
 
 $box1 = new Box();
-$box1->height = 4;
-$box2 = clone $box1;
-$box2->height = 7;
-var_dump($box1, $box2);
-$box1->describe();
+var_dump($box1);
+$metalBox1 = new MetalBox();
+var_dump($metalBox1);
