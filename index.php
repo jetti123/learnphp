@@ -2,6 +2,7 @@
 
 class Box {
     public $size;
+    protected $width;
     public static $number;
 
     public static function getNumber(){
@@ -16,6 +17,10 @@ class Box {
     public static function me2(){
         var_dump(static::class);
     } 
+    public function getWidth(){
+        var_dump($this->width);
+
+    }
 }
 
 class MetalBox extends Box {
@@ -24,6 +29,9 @@ class MetalBox extends Box {
 
 $box1 = new Box();
 $box1->size = 10;
+$box1->getWidth();
+$metal1 = new MetalBox();
+$metal1->getWidth();
 Box::$number = 10;
 $box1->getSize();
 Box::getNumber();
